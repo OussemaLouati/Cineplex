@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Add or Edit cinema</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="save()" #addCinemaForm="ngForm">
+    <div class="form-group">
+      <label for="cinemaName" class="form-check-label">Name</label>
+      <input type="text" id="cinemaName" class="form-control" [(ngModel)]="cinema.nom" name="nom" #nom="ngModel" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-check-label" for="adresse">Adresse</label>
+      <input type="text" class="form-control" id="adresse" [(ngModel)]="cinema.adresse" name="adresse" #adresse="ngModel" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-check-label" for="Telephone">Telephone</label>
+      <input type="text" class="form-control" id="Telephone" [(ngModel)]="cinema.telephone" name="telephone" #telephone="ngModel" required>
+    </div>
+
+    <div class="form-group">
+      <label for="gouvernorat" class="form-check-label">Gouvernorat</label>
+      <input type="text" id="gouvernorat" class="form-control" [(ngModel)]="cinema.gouvernorat" name="gouvernorat" #gouvernorat="ngModel" required>
+    </div>
+
+    <div class="form-group">
+      <label for="image" class="form-check-label">Image</label>
+      <input type="text" id="image"  class="form-control" [(ngModel)]="cinema.image" name="image" #image="ngModel" required>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-outline-dark" [disabled]="addCinemaForm.invalid" (click)="save()">Save</button>
+</div>

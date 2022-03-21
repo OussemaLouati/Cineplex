@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-4">
+      <div class="form-group">
+        <label for="governorate" class="form-check-label">Gouvernorat</label>
+        <select name="gov" class="form-control" id="governorate" (change)="displayCinemas($event.target.value)">
+          <option [value]="null">---</option>
+          <option *ngFor="let gov of governorate" [value]="gov">{{gov}}</option>
+        </select>
+      </div>
+  </div>
+  <div *ngIf="cinemas" class="col-md-4">
+    <div class="form-group">
+      <label for="cinemas" class="form-check-label">Cinemas</label>
+      <select name="cinema" class="form-control"  id="cinemas" (change)="displayShowingDetails($event.target.value)">
+        <option [value]="null">---</option>
+        <option *ngFor="let cinema of cinemas" [value]="cinema.id">{{cinema.nom}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div *ngIf="showingDetails" class="row">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Film</th>
+      <th scope="col">Temps</th>
+      <th scope="col">Prix</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let showingDetail of showingDetails">
+      <td>{{showingDetail?.nomFilm}}</td>
+      <td>{{showingDetail?.temps}}</td>
+      <td>{{showingDetail?.prixTND}}</td>
+      <td><button class="btn btn-secondary" (click)="addShowingDetail(cinema)">More Infos (N7eb bouton hedha ywarrik kol chay 3al film)</button></td>
+      <td><button class="btn btn-primary" (click)="addShowingDetail(cinema)">Reserver</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

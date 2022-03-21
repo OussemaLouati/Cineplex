@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Login</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="cinemaName" class="form-check-label">Email</label>
+      <input type="email" id="cinemaName" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label class="form-check-label" for="adresse">Password</label>
+      <input type="password" class="form-control" id="adresse">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+  <button type="submit" class="btn btn-secondary" (click)="signup()">Sign up</button>
+</div>

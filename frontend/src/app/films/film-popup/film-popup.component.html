@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update movie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="save()" #updateForm="ngForm">
+      <div class="form-group">
+        <label for="filmTitle" class="form-check-label">Film Title</label>
+        <input type="text" id="filmTitle" class="form-control" [(ngModel)]="film.titre" name="titre" #titre="ngModel" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-check-label" for="filmSynopsis">Film Synopsis</label>
+        <input type="text" class="form-control" id="filmSynopsis" [(ngModel)]="film.synopsis" name="synopsis" #synopsis="ngModel" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-check-label" for="poster">Film Poster</label>
+        <input type="text" class="form-control" id="poster" [(ngModel)]="film.poster" name="poster" #poster="ngModel" required>
+      </div>
+
+      <div class="form-group">
+        <label for="filmDuree" class="form-check-label">Durée</label>
+        <input type="number" id="filmDuree" class="form-control" [(ngModel)]="film.duree" name="duree" #duree="ngModel" required>
+      </div>
+
+      <div class="form-group">
+        <label for="filmDS" class="form-check-label">Date Sortie</label>
+        <input type="string" id="filmDS"  class="form-control" [(ngModel)]="film.dateSortie" name="dateSortie" #dateSortie="ngModel" required>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark" [disabled]="updateForm.invalid" (click)="save()">Save</button>
+  </div>

@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 20px;
+}
+
+.side-nav {
+  background: #343a40!important;
+  border: 0.2px solid white;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-button {
+  height: 50px;
+  line-height: 45px;
+  padding-left: 32%;
+  color: white;
+}
+.action-button:hover {
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+.card {
+  margin: 30px;
+}

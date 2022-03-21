@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Add Showing Detail for {{cinema.nom}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="save()" #addShowingDetailForm="ngForm">
+    <div class="form-group">
+      <label for="film" class="form-check-label">Film</label>
+      <select name="film" class="form-control" id="film" (change)="handleChange($event.target.value)">
+        <option [value]="null">---</option>
+        <option *ngFor="let film of films" [value]="film.id">{{film.titre}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-check-label" for="temps">Temps</label>
+      <input type="text" class="form-control" id="temps" [(ngModel)]="showingDetail.temps" name="temps" #temps="ngModel" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-check-label" for="prix">Prix</label>
+      <input type="number" class="form-control" id="prix" [(ngModel)]="showingDetail.prixTND" name="prixTND" #prixTND="ngModel" required>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-outline-dark" [disabled]="addShowingDetailForm.invalid" (click)="save()">Save</button>
+</div>
